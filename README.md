@@ -1,5 +1,5 @@
-# Getting started
-Öncelikle, gerekli tüm araçların yerel makinenizde kurulu olduğundan emin olun ve ardından bu adımlara devam edin.
+# Gettin Started
+First, make sure that all required tools are installed on your local machine and then continue with these steps.
 
 ```
 # Clone the repository
@@ -17,7 +17,8 @@ npm i (module name)
 ```
 
 # Bot Error
-Her bot gibi bu dosyalar hata verebilir bu sebep ile botu yeniden başlatmanız gerekebilir
+You can export these files like any bot, so you can restart the bot.
+
 
 GitBash:
 ```
