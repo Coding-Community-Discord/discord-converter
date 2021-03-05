@@ -1,21 +1,18 @@
-﻿const Discord = require("discord.js");
+const Discord = require("discord.js");
 const db = require("quick.db");
-const hast = require("hastebin-gen");
-const m = require("nodme")
 module.exports.run = async (client, message, args) => {
   let v11Kod = args.slice(0).join(" ");
   if (!v11Kod) {
     return message.channel.send(
-      "> V12 Çevirmem için bir kod belirt."
+      "Kodunu V12 Geçirmem İçin Kodunu Yazman Gerek 200 IQ yum Demi ?"
     );
   }
-  if (v11Kod.length > 1024) {
+    if (v11Kod.length > 1900) {
     return message.channel.send(
-      "Kodun 1024 Karakterden Fazla Bölerek Yazarmısın Rica etsem?" 
+      "Kodun 1900 Karakterden Fazla Bölerek Yazarmısın ?"
     );
   }
-  let ilkadım = m.replace(v11Kod)
-  let v12kod = ilkadım
+  let v12kod = v11Kod
     .split("get")
     .join("cache.get")
     .split("addRole")
@@ -87,31 +84,21 @@ module.exports.run = async (client, message, args) => {
     .split("broadcast.dispatchers")
     .join("broadcast.subscribers")
     .split("forEach")
-    .join("cache.forEach")
-   .split("client.ping")
-    .join("client.ws.ping")
-
- if (v11Kod == v12kod) {
-    return message.channel.send("Bu Kod Zaten V12.");
-  }
-
-
-    const embed = new Discord.MessageEmbed()
+    .join("cache.forEach");
+  const embed = new Discord.MessageEmbed()
+    .setColor("RED")
     .addField(
-        `<a:onayli:766211779549986816> V11 Giriş:`,
-        `   \`\`\`\js
-  ${v11Kod}\`\`\` `
-      )
-    .addField(
-      `<a:onaysiz:766211756288245782> V12 Çıkış:`,
-      `   \`\`\`\js
-${v12kod}\`\`\` `
+      ":inbox_tray: V11 Kod",
+      `\`\`\`\js
+${v11Kod} \`\`\` `
     )
-
-
+    .addField(
+      ":outbox_tray: V12 Kod",
+      `\`\`\`\js
+${v12kod}\`\`\` `
+    );
   message.channel.send(embed);
-
-  db.add(`çevrilenkod`, 1);  
+  db.add(`çevrilenkod`, 1);
 };
 
 module.exports.conf = {
@@ -126,4 +113,3 @@ module.exports.help = {
   description: "Botta bulunan tüm komutları gösterir",
   usage: "komutlar"
 };
-
